@@ -1,0 +1,39 @@
+body {
+    padding: 20px;
+}
+
+.title {
+    font-family: 'Baloo Tammudu', cursive;
+    color: #4295D5;
+    font-size: 50px;
+}
+
+.display-page{ 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 500px;
+    width: 500px;
+}
+
+.button-container {
+    display: flex;
+    justify-content: space-around;
+}
+
+.btn:active{
+    background-color: white; 
+}
+
+.display-box {
+    border: 2px solid blue;
+    height: 400px;
+    width: 400px;
+    /* display: flex;
+    align-items: center;
+    justify-content: center; */
+    margin-bottom: 100px;
+    margin-left: 30%;
+    margin-top: 5%;
+    padding: 20px;
+}
