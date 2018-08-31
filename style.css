@@ -1,11 +1,18 @@
 body {
     padding: 20px;
+    background-image: url("https://img.freepik.com/free-vector/colorful-sunset-gradient-vector-background_1962-597.jpg?size=338&ext=jpg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
+    background-size: cover;
 }
 
 .title {
     font-family: 'Baloo Tammudu', cursive;
-    color: #4295D5;
+    color: #4268B5;
     font-size: 50px;
+    margin-top: 20px;
+    margin-left: 10px;
 }
 
 .display-page{ 
@@ -25,15 +32,49 @@ body {
     background-color: white; 
 }
 
-.display-box {
-    border: 2px solid blue;
-    height: 400px;
+#container {
+    height: 522px;
     width: 400px;
-    /* display: flex;
+    display: flex;
     align-items: center;
-    justify-content: center; */
-    margin-bottom: 100px;
+    justify-content: center;
+    margin-bottom: 50px;
     margin-left: 30%;
-    margin-top: 5%;
+    margin-top: 50px;
     padding: 20px;
+}
+
+#city-picture {
+    width: 245px;
+    height: 180px;
+    margin-top: 10px;
+    border-radius: 10px;
+}
+
+.pic-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.card {
+    width: 400px;
+    height: 600px;
+    background: none;
+}
+
+#pic {
+    width: 50px;
+    height: 50px;
+}
+
+.weather-text {
+    margin-top: 30px;
+    margin-left: 20px;
+}
+
+.card-title {
+    font-family: 'Baloo Tammudu', cursive;
+    color: #4268B5;
+    font-size: 30px;
 }

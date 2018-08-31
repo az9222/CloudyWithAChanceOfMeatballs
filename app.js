@@ -7,14 +7,30 @@ $(document).ready(function(){
         let tempMin = data.main.temp_min ? data.main.temp_min : "N/A";
         let tempMax = data.main.temp_max ? data.main.temp_max : "N/A";
         let icon = data.weather[0].icon && data.weather.length > 0 ? data.weather[0].icon : "";
-        $("#city-name").text(cityName);
+        let cityCode = data.id;
+        let currentTemperature = data.main.temp ? data.main.temp : "N/A";
+        $(".card-title").text(cityName);
         $("#weatherMain").text(weatherMain);
         $("#weatherDescription").text(weatherDescription);
         $("#weatherHumidity").text(humidity+"%");
-        $("#tempMin").text((tempMin - 273.15).toFixed(2)+"°C");
-        $("#tempMax").text((tempMax - 273.15).toFixed(2)+"°C");
+        $("#temp").text(((currentTemperature * 9/5) - 459.67).toFixed(2)+"°F");
+        $("#tempMin").text(((tempMin * 9/5) - 459.67).toFixed(2)+"°F");
+        $("#tempMax").text(((tempMax * 9/5) - 459.67).toFixed(2)+"°F");
         $("#pic").attr('src', "http://openweathermap.org/img/w/" + icon + ".png");
+        let img = $('#city-picture')
+        img.attr('src', pictureMapping[cityCode]);
+        img.css("width", "245px").css("height", "180px").css("margin-top", "10px")
     }
+
+    let pictureMapping = {
+        4459467: "https://www.foundationrepairservices.com/assets/images/content/1804/page_image.jpg", //id of nc"
+        5391959: "http://www.sftravel.com/sites/sftraveldev.prod.acquia-sites.com/files/SanFrancisco_0.jpg", //SF
+        5128638: "https://blogmedia.evbstatic.com/wp-content/uploads/rally/2017/12/18072307/twenty20_70fc02a0-c467-4ad1-9f08-793bbb9316bb-1500x750.jpg", //NY
+        4140963: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRFk8v87S2YMk0wIW9x70M8boXw3e5ofDgrE1douIpzn6ZrFI1m",//DC
+        4887398: 'http://cdn.mntm.me/07/a2/70/Chicago-Illinois-07a270874f284e8e9791a826954c11bf_c.jpg' //Chicago
+    }
+
+    
 
     function convertToJSON(data) {
         let dataJson = data.json();
