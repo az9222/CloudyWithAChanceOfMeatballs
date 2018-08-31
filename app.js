@@ -42,6 +42,7 @@ $(document).ready(function(){
     }
 
     $(".btn").click(function(event){
+        $(".weather").remove();
         $(".weatherInfo").removeAttr("style");
         $(".btn").removeClass('btn-secondary').addClass('btn-primary');
         $(this).removeClass('btn-primary').addClass('btn-secondary');

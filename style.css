@@ -11,7 +11,7 @@ body {
     font-family: 'Baloo Tammudu', cursive;
     color: #4268B5;
     font-size: 50px;
-    margin-top: 20px;
+    margin-top: 5px;
     margin-left: 10px;
 }
 
@@ -59,8 +59,9 @@ body {
 
 .card {
     width: 400px;
-    height: 600px;
+    height: 561px;
     background: none;
+    margin-top:-42px;
 }
 
 #pic {
@@ -79,4 +80,14 @@ body {
     font-size: 30px;
 }
 
-/*experiment*/
+/*experiemtn*/
+.weather {
+    position: relative;
+    width: 200px;
+    height: 200px;
+}
+
+#logo {
+    width: 357px;
+    height: 559px;
+}
