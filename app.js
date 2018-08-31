@@ -1,15 +1,16 @@
 $(document).ready(function(){
     function displayData(data) {
-        let cityName = data.name ? data.name : "N/A";
-        let weatherMain =  data.weather[0].main && data.weather.length > 0 ? data.weather[0].main: "N/A";
-        let weatherDescription = data.weather[0].description && data.weather.length > 0 ? data.weather[0].description : "N/A";
-        let humidity = data.main && data.main.humidity ? data.main.humidity : "N/A";
-        let tempMin = data.main.temp_min ? data.main.temp_min : "N/A";
-        let tempMax = data.main.temp_max ? data.main.temp_max : "N/A";
-        let icon = data.weather[0].icon && data.weather.length > 0 ? data.weather[0].icon : "";
-        let cityCode = data.id;
-        let currentTemperature = data.main.temp ? data.main.temp : "N/A";
-        $(".card-title").text(cityName);
+        let cityName = data.name ? data.name : "";
+        let weatherMain =  data.weather && data.weather[0].main && data.weather.length > 0 ? data.weather[0].main: "";
+        let weatherDescription = data.weather && data.weather[0].description && data.weather.length > 0 ? data.weather[0].description : "";
+        let humidity = data.main && data.main.humidity ? data.main.humidity : "";
+        let tempMin = data.main && data.main.temp_min ? data.main.temp_min : "";
+        let tempMax = data.main && data.main.temp_max ? data.main.temp_max : "";
+        let icon = data.weather && data.weather[0].icon && data.weather.length > 0 ? data.weather[0].icon : "";
+        let cityCode = data.id ? data.id : "";
+        let currentTemperature = data.main && data.main.temp ? data.main.temp : "";
+
+        $("#city-name").text(cityName);
         $("#weatherMain").text(weatherMain);
         $("#weatherDescription").text(weatherDescription);
         $("#weatherHumidity").text(humidity+"%");
@@ -17,7 +18,7 @@ $(document).ready(function(){
         $("#tempMin").text(((tempMin * 9/5) - 459.67).toFixed(2)+"°F");
         $("#tempMax").text(((tempMax * 9/5) - 459.67).toFixed(2)+"°F");
         $("#pic").attr('src', "http://openweathermap.org/img/w/" + icon + ".png");
-        let img = $('#city-picture')
+        let img = $('#city-picture');
         img.attr('src', pictureMapping[cityCode]);
     }
 
@@ -29,8 +30,6 @@ $(document).ready(function(){
         4887398: 'http://cdn.mntm.me/07/a2/70/Chicago-Illinois-07a270874f284e8e9791a826954c11bf_c.jpg' //Chicago
     }
 
-    
-
     function convertToJSON(data) {
         let dataJson = data.json();
         return dataJson;
@@ -39,16 +38,18 @@ $(document).ready(function(){
     function getWeatherData (cityCode) {
         let siteURL = "https://api.openweathermap.org/data/2.5/weather?id="+cityCode+"&APPID=f9f24abb47cc21b35ae1823e50de39bf";
         let weatherData = fetch(siteURL);
-        weatherData.then(convertToJSON).then(displayData)
+        weatherData.then(convertToJSON).then(displayData);
     }
 
     $(".btn").click(function(event){
         $(".weatherInfo").removeAttr("style");
-        $(".btn").removeClass('btn-secondary').addClass('btn-primary')
+        $(".btn").removeClass('btn-secondary').addClass('btn-primary');
         $(this).removeClass('btn-primary').addClass('btn-secondary');
-        var cityId = event.target.value
-        getWeatherData(cityId)
+        var cityId = event.target.value;
+        getWeatherData(cityId);
     })
+
+    displayData({});
 
 })
 
