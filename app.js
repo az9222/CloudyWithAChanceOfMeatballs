@@ -19,7 +19,6 @@ $(document).ready(function(){
         $("#pic").attr('src', "http://openweathermap.org/img/w/" + icon + ".png");
         let img = $('#city-picture')
         img.attr('src', pictureMapping[cityCode]);
-        img.css("width", "245px").css("height", "180px").css("margin-top", "10px")
     }
 
     let pictureMapping = {
@@ -50,4 +49,6 @@ $(document).ready(function(){
         var cityId = event.target.value
         getWeatherData(cityId)
     })
+
 })
+
